@@ -36,7 +36,6 @@ export default {
         unitType: 'metro',
         unitPrice: null,
       },
-      result: null
     }
   },
   methods: {
@@ -44,6 +43,7 @@ export default {
       event.preventDefault();
       const content = this.service;
       await this.$axios.post('http://localhost:3333/services/', { content });
+      this.$router.go(-1)
     }
   }
 }
