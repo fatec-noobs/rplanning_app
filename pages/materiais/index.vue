@@ -6,7 +6,6 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Tipo</th>
             <th scope="col">Preço</th>
@@ -14,7 +13,6 @@
         </thead>
         <tbody>
           <tr v-for="material in materialsSortedByDate" :key="material.id">
-            <th scope="row">{{ material.id }}</th>
             <td>{{ material.description }}</td>
             <td>{{ material.unitType }}</td>
             <td>{{ material.unitPrice }}</td>

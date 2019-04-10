@@ -6,7 +6,6 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Tipo</th>
             <th scope="col">Preço</th>
@@ -14,7 +13,6 @@
         </thead>
         <tbody>
           <tr v-for="service in servicesSortedByDate" :key="service.id">
-            <th scope="row">{{ service.id }}</th>
             <td>{{ service.description }}</td>
             <td>{{ service.unitType }}</td>
             <td>{{ service.unitPrice }}</td>
