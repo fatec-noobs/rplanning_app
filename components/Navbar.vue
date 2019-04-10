@@ -8,7 +8,7 @@
     </button>
     <div class="navbar-collapse" v-bind:class="{collapse: isToggled}">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <nuxt-link class="nav-link" to="/clientes">
             Clientes
             <span class="sr-only">(current)</span>
