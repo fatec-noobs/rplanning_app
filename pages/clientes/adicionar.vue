@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
           <label>Logradouro</label>
-          <input type="text" class="form-control" placeholder="Digite o seu logradouro" v-model="address.publicPlace">
+          <input type="text" class="form-control" placeholder="Digite o seu logradouro" v-model="address.public_place">
         </div>
         <div class="form-group">
           <label>Número</label>
@@ -64,9 +64,6 @@
 
 <script>
 export default {
-  components: {
-    FormAddress
-  },
   data() {
     return {
       client: {
@@ -78,7 +75,7 @@ export default {
       },
       address: {
         cep: null,
-        publicPlace: null,
+        public_place: null,
         number: null,
         complement: null,
         neighborhood: null,
