@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
           <label>Tipo de unidade</label>
-          <select class="form-control" v-model="service.unitType" required>
+          <select class="form-control" v-model="service.unit_type" required>
             <option value="metro">Metro</option>
             <option value="metro quadrado">Metro quadrado</option>
             <option value="metro cubico">Metro cubico</option>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
           <label>Preço unitário</label>
-          <input type="number" v-model="service.unitPrice" class="form-control" placeholder="Digite o preço" required>
+          <input type="number" v-model="service.unit_price" class="form-control" placeholder="Digite o preço" required>
         </div>
       </fieldset>
       <button type="submit" class="btn btn-primary">Salvar</button>
@@ -33,8 +33,8 @@ export default {
     return {
       service: {
         description: null,
-        unitType: 'metro',
-        unitPrice: null,
+        unit_type: 'metro',
+        unit_price: null,
       },
     }
   },

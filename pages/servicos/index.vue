@@ -14,8 +14,8 @@
         <tbody>
           <tr v-for="service in servicesSortedByDate" :key="service.id">
             <td>{{ service.description }}</td>
-            <td>{{ service.unitType }}</td>
-            <td>{{ service.unitPrice }}</td>
+            <td>{{ service.unit_type }}</td>
+            <td>{{ service.unit_price }}</td>
           </tr>
         </tbody>
       </table>

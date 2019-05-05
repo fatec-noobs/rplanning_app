@@ -63,8 +63,6 @@
 </template>
 
 <script>
-import FormAddress from '~/components/form_pieces/Address.vue'
-
 export default {
   components: {
     FormAddress

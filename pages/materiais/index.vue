@@ -14,8 +14,8 @@
         <tbody>
           <tr v-for="material in materialsSortedByDate" :key="material.id">
             <td>{{ material.description }}</td>
-            <td>{{ material.unitType }}</td>
-            <td>{{ material.unitPrice }}</td>
+            <td>{{ material.unit_type }}</td>
+            <td>{{ material.unit_price }}</td>
           </tr>
         </tbody>
       </table>
