@@ -24,6 +24,11 @@
             Materiais
           </nuxt-link>
         </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/orcamentos">
+            Orçamentos
+          </nuxt-link>
+        </li>
       </ul>
     </div>
   </nav>
