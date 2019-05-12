@@ -71,7 +71,7 @@ export default {
   },
   async created() {
     const serices_type = await this.$axios.get('http://localhost:3333/services/');
-    this.serices_type = serices_type.data;
+    this.services_type = serices_type.data;
 
     const materials_type = await this.$axios.get('http://localhost:3333/materials/');
     this.materials_type = materials_type.data;
@@ -107,11 +107,12 @@ export default {
     },
     async saveBudget(event) {
       event.preventDefault()
-      const value = this.calcValue()
+      this.calcValue()
       const content = {
-        client_id: budget_client.id,
+        client_id: this.budget_client.id,
+        value: this.total,
       }
-      await this.$axios.post('http://localhost:3333/materials/', { content });
+      await this.$axios.post('http://localhost:3333/budgets/', { content });
       this.$router.go(-1)
     }
   }
