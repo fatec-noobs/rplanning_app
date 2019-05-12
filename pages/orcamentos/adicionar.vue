@@ -8,10 +8,12 @@
         
         <div class="form-group" v-for="budget_material, index in budgets_materials" >
           <label>Material {{ index + 1 }}</label>
-          <select class="form-control" v-model="budget_material.value" required>
-            <option v-for="material in materials_type" :value="material.id">{{ material.description }}</option>
+          <select class="form-control" v-model="budget_material.material" @change="calcValue" required>
+            <option v-for="material in materials_type" :value="material">{{ material.description }}</option>
           </select>
-          <input v-model="budget_material.amount" class="form-control" type="number" placeholder="quantidade"/>
+          <input
+            v-model="budget_material.amount"
+            class="form-control" type="number" @change="calcValue" placeholder="quantidade"/>
         </div>
 
         <button class="btn btn-secondary" @click="removeMaterial">Remover um</button>
@@ -23,10 +25,12 @@
         
         <div class="form-group" v-for="budget_service, index in budgets_services">
           <label>Serviço {{ index + 1 }}</label>
-          <select class="form-control" v-model="budget_service.value" required>
-            <option v-for="service in services_type" :value="service.id">{{ service.description }}</option>
+          <select class="form-control" v-model="budget_service.service" @change="calcValue" required>
+            <option v-for="service in services_type" :value="service">{{ service.description }}</option>
           </select>
-          <input v-model="budget_service.amount" class="form-control" type="number" placeholder="quantidade"/>
+          <input
+            v-model="budget_service.amount"
+            class="form-control" type="number" @change="calcValue" placeholder="quantidade"/>
         </div>
 
         <button class="btn btn-secondary" @click="removeService">Remover um</button>
@@ -41,6 +45,8 @@
           </select>
         </div>
       </fieldset>
+
+      <p>Total: R${{ total }}</p>
 
       <button class="btn btn-primary">Salvar</button>
     </form>
@@ -58,7 +64,9 @@ export default {
       materials_type: [],
 
       client_list: [],
-      budget_client: { id: null }
+      budget_client: { id: null },
+
+      total: 0
     }
   },
   async created() {
@@ -85,13 +93,23 @@ export default {
       this.budgets_services.pop(-1)
     },
     calcValue() {
-
+      this.total = 0;
+      this.budgets_materials.forEach((budget) => {
+        if(budget && budget.material) {
+          this.total += budget.material.unit_price * budget.amount;
+        }
+      })
+      this.budgets_services.forEach((budget) => {
+        if(budget && budget.service) {
+          this.total += budget.service.unit_price * budget.amount;
+        }
+      })
     },
     async saveBudget(event) {
-      event.preventDefault();
+      event.preventDefault()
+      const value = this.calcValue()
       const content = {
         client_id: budget_client.id,
-
       }
       await this.$axios.post('http://localhost:3333/materials/', { content });
       this.$router.go(-1)
