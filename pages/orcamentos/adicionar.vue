@@ -105,12 +105,22 @@ export default {
         }
       })
     },
+    getMaterialsId() {
+      return this.budgets_materials.map((obj) => obj.material.id);
+    },
+    getServicesId() {
+      return this.budgets_services.map((obj) => obj.service.id);
+    },
     async saveBudget(event) {
       event.preventDefault()
       this.calcValue()
+      const materials_id = this.getMaterialsId();
+      const services_id = this.getServicesId();
       const content = {
         client_id: this.budget_client.id,
         value: this.total,
+        materials_id: materials_id,
+        services_id: services_id,
       }
       await this.$axios.post('http://localhost:3333/budgets/', { content });
       this.$router.go(-1)
