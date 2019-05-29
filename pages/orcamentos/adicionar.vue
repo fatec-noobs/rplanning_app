@@ -71,7 +71,7 @@ export default {
   },
   async created() {
     const serices_type = await this.$axios.get('http://localhost:3333/services/');
-    this.serices_type = serices_type.data;
+    this.services_type = serices_type.data;
 
     const materials_type = await this.$axios.get('http://localhost:3333/materials/');
     this.materials_type = materials_type.data;
@@ -105,13 +105,24 @@ export default {
         }
       })
     },
+    getMaterialsId() {
+      return this.budgets_materials.map((obj) => obj.material.id);
+    },
+    getServicesId() {
+      return this.budgets_services.map((obj) => obj.service.id);
+    },
     async saveBudget(event) {
       event.preventDefault()
-      const value = this.calcValue()
+      this.calcValue()
+      const materials_id = this.getMaterialsId();
+      const services_id = this.getServicesId();
       const content = {
-        client_id: budget_client.id,
+        client_id: this.budget_client.id,
+        value: this.total,
+        materials_id: materials_id,
+        services_id: services_id,
       }
-      await this.$axios.post('http://localhost:3333/materials/', { content });
+      await this.$axios.post('http://localhost:3333/budgets/', { content });
       this.$router.go(-1)
     }
   }
