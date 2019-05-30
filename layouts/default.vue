@@ -24,7 +24,7 @@
             <li><i class="fab fa-linkedin fa-2x"></i></li>
             <li><span>@rplanningservices</span></li>
           </ul>
-          <a class="site" href="www.rplanning.com.br">www.rplanning.com.br</a>
+          <a class="site" href="http://www.rplanning.com.br">www.rplanning.com.br</a>
           <ul class="contact-list">
             <li>
               <i class="fas fa-phone-square fa-2x"></i>
@@ -80,7 +80,8 @@ html {
 }
 
 .app__header {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 8px 0 rgba(31, 45, 48, 0.24);
 }
 
 .app__content {
@@ -89,6 +90,7 @@ html {
 
 .footer {
   background-color: #f8f9fa;
+  margin-top: 16px;
 }
 
 .footer__container {
@@ -100,7 +102,7 @@ html {
 }
 
 .title {
-  background-color: #fd7e14;
+  background-color: #feb809;
   color: white;
   font-size: 1.8rem;
   padding: 16px;

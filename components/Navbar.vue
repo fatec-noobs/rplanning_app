@@ -1,14 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <nuxt-link class="navbar-brand" to="/">
-        R&Planning
+        <img class="logo" src="~/assets/images/logo.png"/>
       </nuxt-link>
       <button class="navbar-toggler" @click="toggle()" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse" v-bind:class="{collapse: isToggled}">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav menu">
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/clientes">
               Clientes
@@ -50,3 +50,21 @@ export default {
   }
 }
 </script>
+
+<style>
+.logo {
+  width: 200px;
+}
+
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba($color-neutral-1-pure, 0.24);
+}
+
+.menu {
+  margin-left: auto;
+}
+
+.nuxt-link-active {
+  font-weight: bold;
+}
+</style>

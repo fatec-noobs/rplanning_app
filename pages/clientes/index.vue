@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <h1>Cliente</h1>
+    <h1>Clientes</h1>
     <nuxt-link to="/clientes/adicionar">Adicionar novo cliente</nuxt-link>
     <section class="table-responsive-sm">
       <table class="table table-hover">
